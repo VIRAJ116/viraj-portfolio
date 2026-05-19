@@ -12,9 +12,9 @@ Built without backdrop-filters, blend modes, or fixed 3D loops.
 
 | Layer             | Tool                                  |
 | ----------------- | ------------------------------------- |
-| Framework         | Next.js 14 (App Router)               |
-| UI                | React 18 + Tailwind CSS               |
-| Motion            | Framer Motion                         |
+| Framework         | Next.js 16 (App Router)               |
+| UI                | React 19 + Tailwind CSS 4             |
+| Motion            | Framer Motion 12                      |
 | Scroll animation  | GSAP + ScrollTrigger                  |
 | Smooth scroll     | Lenis                                 |
 | Fonts             | Space Grotesk · Inter · JetBrains Mono |
@@ -30,7 +30,7 @@ Render budget is mostly type, hairlines, and a single accent color.
 - **Accent** `#c7ff00`
 - **Line / Line-strong** `#1f1f1c` / `#2a2a26`
 
-All tokens live as CSS variables in [`app/globals.css`](app/globals.css) and as Tailwind theme extensions in [`tailwind.config.js`](tailwind.config.js).
+All tokens live in a single `@theme { … }` block in [`app/globals.css`](app/globals.css) — Tailwind 4 is CSS-first, so there's no `tailwind.config.js`.
 
 ## Running locally
 

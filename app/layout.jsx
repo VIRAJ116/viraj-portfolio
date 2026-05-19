@@ -9,13 +9,13 @@ const inter = Inter({
 
 const display = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-display",
+  variable: "--font-grotesk",
   display: "swap",
 });
 
 const mono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-jetbrains",
   display: "swap",
 });
 

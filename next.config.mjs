@@ -7,7 +7,6 @@ const nextConfig = {
       { protocol: "https", hostname: "cdn.jsdelivr.net" },
     ],
   },
-  transpilePackages: ["three"],
 };
 
 export default nextConfig;
