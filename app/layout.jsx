@@ -61,7 +61,9 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${inter.variable} ${display.variable} ${mono.variable}`}
     >
-      <body className="font-sans">{children}</body>
+      <body className="font-sans" suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   );
 }
