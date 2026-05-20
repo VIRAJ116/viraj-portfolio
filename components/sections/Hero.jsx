@@ -40,17 +40,17 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden pt-20"
+      className="relative min-h-[100svh] flex flex-col md:justify-end overflow-hidden pt-20"
     >
       {/* Top meta band */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 0.7 }}
-        className="absolute top-20 inset-x-0 px-6 md:px-10 lg:px-14"
+        className="relative md:absolute md:top-20 inset-x-0 px-6 md:px-10 lg:px-14"
       >
         <div className="hairline" />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-6 font-mono text-[11px] uppercase tracking-[0.25em] text-fg-dim">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 py-5 md:py-6 font-mono text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-fg-dim">
           <div>
             <div className="text-fg-dim/60">[ Position ]</div>
             <div className="text-fg mt-1.5">{profile.location}</div>
@@ -71,13 +71,13 @@ export default function Hero() {
         <div className="hairline" />
       </motion.div>
 
-      <div className="container-x relative w-full pb-12 md:pb-16">
+      <div className="container-x relative w-full pt-10 md:pt-0 pb-12 md:pb-16">
         {/* Greeting / index */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.6 }}
-          className="mono-eyebrow mb-8 flex items-center gap-3"
+          className="mono-eyebrow mb-6 md:mb-8 flex items-center gap-3"
         >
           <span className="text-accent">§ 00</span>
           <span className="h-px w-8 bg-line-strong" />
@@ -93,7 +93,7 @@ export default function Hero() {
             duration={1}
             staggerChildren={0.06}
             splitBy="char"
-            className="display-huge text-[20vw] md:text-[15vw] text-fg"
+            className="display-huge text-[18vw] md:text-[15vw] text-fg leading-[0.95]"
           />
           <div className="flex items-baseline gap-4 md:gap-8 flex-wrap">
             <RevealText
@@ -103,7 +103,7 @@ export default function Hero() {
               duration={1}
               staggerChildren={0.06}
               splitBy="char"
-              className="display-huge text-[20vw] md:text-[15vw] text-fg"
+              className="display-huge text-[18vw] md:text-[15vw] text-fg leading-[0.95]"
             />
             <motion.span
               initial={{ opacity: 0, x: -20 }}
@@ -176,7 +176,7 @@ export default function Hero() {
           transition={{ delay: 3, duration: 1 }}
           className="mt-16 hairline"
         />
-        <div className="mt-4 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.3em] text-fg-dim">
+        <div className="mt-4 flex items-center justify-between font-mono text-[11px] md:text-xs uppercase tracking-[0.28em] text-fg-dim">
           <span>Scroll for case studies</span>
           <span className="hidden md:inline">{profile.firstName.toLowerCase()}.raiyani.dev / 2026</span>
           <motion.span

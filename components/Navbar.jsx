@@ -62,25 +62,32 @@ export default function Navbar() {
       transition={{ delay: 1.2, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className="fixed top-0 inset-x-0 z-50 bg-bg/90 border-b border-line backdrop-blur-[2px]"
     >
-      <div className="px-6 md:px-10 lg:px-14 h-14 flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.25em]">
+      <div className="px-6 md:px-10 lg:px-14 h-14 flex items-center justify-between font-mono text-[13px] uppercase tracking-[0.22em]">
         <a href="#top" className="text-fg flex items-center gap-3">
           <span className="text-accent">●</span>
           <span>Viraj.Raiyani</span>
         </a>
 
         <nav className="hidden md:flex items-center gap-1">
-          {links.slice(1).map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className={`group px-3 py-2 transition-colors ${
-                active === l.id ? "text-fg" : "text-fg-dim hover:text-fg"
-              }`}
-            >
-              <span className="text-accent/70 mr-1.5">{l.id}</span>
-              <span className="link-underline">{l.label}</span>
-            </a>
-          ))}
+          {links.slice(1).map((l) => {
+            const isActive = active === l.id;
+            return (
+              <a
+                key={l.href}
+                href={l.href}
+                className={`group relative px-3 py-2 transition-colors ${
+                  isActive ? "text-fg" : "text-fg-dim hover:text-fg"
+                }`}
+              >
+                <span
+                  className={`mr-2 inline-block h-1 w-1 rounded-full align-middle transition-colors ${
+                    isActive ? "bg-accent" : "bg-transparent group-hover:bg-fg-dim"
+                  }`}
+                />
+                <span className="link-underline">{l.label}</span>
+              </a>
+            );
+          })}
         </nav>
 
         <div className="hidden md:flex items-center gap-5 text-fg-dim">

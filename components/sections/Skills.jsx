@@ -3,35 +3,40 @@
 import { motion } from "framer-motion";
 import SectionHeader from "@/components/SectionHeader";
 import { skills } from "@/lib/data";
+import { getTech } from "@/lib/techIcons";
 
-function SkillRow({ name, level, i }) {
+function tierFromLevel(level) {
+  if (level >= 90) return "core";
+  if (level >= 82) return "daily";
+  return "familiar";
+}
+
+// Subtle hierarchy via opacity only — no extra borders, dots, or color washes.
+const TIER_OPACITY = {
+  core: "opacity-100",
+  daily: "opacity-90",
+  familiar: "opacity-55 hover:opacity-100",
+};
+
+function SkillTag({ name, level, i }) {
+  const tier = tierFromLevel(level);
+  const { Icon, color } = getTech(name);
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 12 }}
+    <motion.span
+      initial={{ opacity: 0, y: 8 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.5, delay: i * 0.04 }}
-      className="group border-b border-line py-4 hover:bg-bg-alt transition-colors"
+      transition={{ duration: 0.4, delay: i * 0.03 }}
+      className={`inline-flex items-center gap-2.5 border border-line bg-bg-alt/40 hover:bg-bg-alt hover:border-line-strong transition-all px-3.5 py-2 font-mono text-[11px] md:text-xs uppercase tracking-[0.18em] text-fg cursor-default ${TIER_OPACITY[tier]}`}
     >
-      <div className="dot-leader font-mono text-sm">
-        <span className="text-fg uppercase tracking-[0.1em]">
-          <span className="text-accent mr-3">›</span>
-          {name}
-        </span>
-        <span className="leader" />
-        <span className="text-fg-dim tabular-nums">{level}%</span>
-      </div>
-      <div className="mt-3 h-px w-full bg-line relative overflow-hidden">
-        <motion.span
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: level / 100 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 1, delay: 0.1 + i * 0.03, ease: [0.22, 1, 0.36, 1] }}
-          style={{ transformOrigin: "left" }}
-          className="absolute inset-0 bg-accent"
-        />
-      </div>
-    </motion.div>
+      <span
+        className="inline-flex items-center justify-center h-5 w-5 rounded-[3px]"
+        style={{ background: `${color}1F` }}
+      >
+        <Icon className="h-3.5 w-3.5" style={{ color }} />
+      </span>
+      {name}
+    </motion.span>
   );
 }
 
@@ -45,10 +50,10 @@ export default function Skills() {
           index="02"
           eyebrow="Toolbox"
           title="What I reach for, sharpened by shipping."
-          kicker="A working set across the MERN stack, modern frontend tooling, and an expanding AI toolbox."
+          kicker="A working set across the MERN stack, modern frontend tooling, and an expanding AI toolbox. Faded chips are tools I'm familiar with but reach for less often."
         />
 
-        <div className="grid lg:grid-cols-2 gap-x-20 gap-y-16">
+        <div className="grid lg:grid-cols-2 gap-x-16 gap-y-12 md:gap-y-14">
           {cats.map((cat, ci) => (
             <motion.div
               key={cat}
@@ -57,17 +62,22 @@ export default function Skills() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, delay: ci * 0.05 }}
             >
-              <div className="flex items-baseline justify-between mb-6">
-                <h3 className="display-huge text-3xl md:text-4xl text-fg">
-                  {cat}
-                </h3>
-                <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-fg-dim">
-                  0{ci + 1} / 0{cats.length}
+              <div className="flex items-baseline justify-between mb-5 pb-4 border-b border-line">
+                <div className="flex items-baseline gap-3 md:gap-4">
+                  <span className="font-mono text-[11px] tracking-[0.25em] text-accent">
+                    § 0{ci + 1}
+                  </span>
+                  <h3 className="display-huge text-2xl md:text-4xl text-fg">
+                    {cat}
+                  </h3>
+                </div>
+                <div className="font-mono text-[11px] md:text-xs uppercase tracking-[0.3em] text-fg-dim">
+                  {skills[cat].length} tools
                 </div>
               </div>
-              <div className="border-t border-line">
+              <div className="flex flex-wrap gap-2 md:gap-2.5">
                 {skills[cat].map((s, i) => (
-                  <SkillRow key={s.name} {...s} i={i} />
+                  <SkillTag key={s.name} {...s} i={i} />
                 ))}
               </div>
             </motion.div>

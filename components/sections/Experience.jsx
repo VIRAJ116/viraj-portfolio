@@ -34,7 +34,7 @@ function Row({ item, i }) {
         {item.tags.map((t) => (
           <span
             key={t}
-            className="font-mono text-[10px] uppercase tracking-[0.2em] text-fg-dim border border-line px-2.5 py-1"
+            className="font-mono text-[10px] uppercase tracking-[0.2em] text-fg-dim border border-line px-2.5 py-1 group-hover:border-line-strong transition-colors"
           >
             {t}
           </span>
@@ -51,6 +51,12 @@ export default function Experience() {
     offset: ["start 75%", "end center"],
   });
   const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const headTop = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const headOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.02, 0.98, 1],
+    [0, 1, 1, 0]
+  );
 
   return (
     <section id="experience" className="section">
@@ -63,11 +69,26 @@ export default function Experience() {
         />
 
         <div ref={ref} className="relative">
+          {/* Faint base rail */}
           <div className="hidden md:block absolute left-0 top-0 bottom-0 w-px bg-line" />
+
+          {/* Scroll-driven accent rail */}
           <motion.div
             style={{ scaleY: lineScale, transformOrigin: "top" }}
-            className="hidden md:block absolute left-0 top-0 bottom-0 w-px bg-accent"
+            className="hidden md:block absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-accent via-accent to-accent/40"
           />
+
+          {/* Glowing leading head — rides the scroll progress */}
+          <motion.div
+            style={{ top: headTop, opacity: headOpacity }}
+            className="hidden md:block absolute left-0 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none"
+          >
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-accent/50 animate-ping" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_12px_2px] shadow-accent/60" />
+            </span>
+          </motion.div>
+
           <div className="border-t border-line">
             {experience.map((e, i) => (
               <Row key={e.role + e.company} item={e} i={i} />

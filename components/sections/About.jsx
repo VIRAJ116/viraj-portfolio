@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import SectionHeader from "@/components/SectionHeader";
 import { profile, marqueeTech } from "@/lib/data";
+import { getTech } from "@/lib/techIcons";
 
 export default function About() {
   return (
@@ -81,14 +82,23 @@ export default function About() {
       </div>
 
       {/* Marquee tech band */}
-      <div className="mt-28 relative border-y border-line py-10 overflow-hidden">
-        <div className="marquee-row gap-16 font-display text-4xl md:text-6xl text-fg/80 whitespace-nowrap">
-          {[...marqueeTech, ...marqueeTech].map((t, i) => (
-            <span key={i} className="flex items-center gap-16">
-              <span>{t}</span>
-              <span className="text-accent text-3xl">/</span>
-            </span>
-          ))}
+      <div className="marquee-pause mt-16 md:mt-28 relative border-y border-line py-8 md:py-10 overflow-hidden">
+        <div className="marquee-row gap-12 md:gap-16 font-display text-3xl md:text-5xl text-fg/85 whitespace-nowrap">
+          {[...marqueeTech, ...marqueeTech].map((t, i) => {
+            const { Icon, color } = getTech(t);
+            return (
+              <span key={i} className="flex items-center gap-12 md:gap-16">
+                <span className="flex items-center gap-4">
+                  <Icon
+                    className="h-8 w-8 md:h-10 md:w-10 shrink-0"
+                    style={{ color }}
+                  />
+                  <span>{t}</span>
+                </span>
+                <span className="text-accent text-2xl md:text-3xl">/</span>
+              </span>
+            );
+          })}
         </div>
       </div>
     </section>

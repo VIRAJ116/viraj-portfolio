@@ -21,7 +21,7 @@ export default function Testimonials() {
     <section id="testimonials" className="section">
       <div className="container-x">
         <SectionHeader
-          index="05"
+          index="06"
           eyebrow="Kind Words"
           title="On the record from people I shipped with."
         />

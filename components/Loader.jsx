@@ -48,7 +48,7 @@ export default function Loader() {
         >
           <div className="absolute inset-0 flex flex-col">
             {/* top bar */}
-            <div className="flex items-center justify-between border-b border-line px-6 md:px-10 py-4 font-mono text-[10px] uppercase tracking-[0.3em] text-fg-dim">
+            <div className="flex items-center justify-between border-b border-line px-6 md:px-10 py-4 font-mono text-[11px] md:text-xs uppercase tracking-[0.28em] text-fg-dim">
               <span>VIRAJ.RAIYANI / portfolio.system</span>
               <span className="hidden md:inline">v3.0.1 · build {new Date().getFullYear()}</span>
               <span className="md:hidden">v3.0.1</span>
@@ -66,7 +66,7 @@ export default function Loader() {
                   Viraj<span className="text-accent">_</span>
                 </motion.div>
 
-                <div className="mt-12 space-y-3 font-mono text-xs text-fg-dim">
+                <div className="mt-12 space-y-3 font-mono text-[13px] text-fg-dim">
                   {lines.slice(0, line + 1).map((l, i) => (
                     <div key={i} className="flex items-center gap-3">
                       <span className="text-accent">›</span>
@@ -85,7 +85,7 @@ export default function Loader() {
             </div>
 
             {/* bottom bar */}
-            <div className="border-t border-line px-6 md:px-10 py-4 font-mono text-[10px] uppercase tracking-[0.3em] text-fg-dim flex items-center gap-4">
+            <div className="border-t border-line px-6 md:px-10 py-4 font-mono text-[11px] md:text-xs uppercase tracking-[0.28em] text-fg-dim flex items-center gap-4">
               <span>LOAD</span>
               <span className="relative flex-1 h-px bg-line">
                 <motion.span
