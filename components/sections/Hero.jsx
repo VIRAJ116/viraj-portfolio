@@ -65,7 +65,7 @@ export default function Hero() {
           </div>
           <div>
             <div className="text-fg-dim/60">[ Status ]</div>
-            <div className="text-accent mt-1.5">Open for Q3 / 2026</div>
+            <div className="text-accent mt-1.5">Open to Opportunities</div>
           </div>
         </div>
         <div className="hairline" />

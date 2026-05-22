@@ -53,7 +53,7 @@ export default function About() {
               </div>
               <div className="flex justify-between border-b border-line py-2">
                 <span>Availability</span>
-                <span className="text-accent">Open Q3 / 2026</span>
+                <span className="text-accent">Open to Opportunities</span>
               </div>
             </div>
           </motion.div>
