@@ -6,6 +6,12 @@ import { FaLinkedin } from "react-icons/fa";
 import { TbPhone, TbArrowUpRight, TbDownload } from "react-icons/tb";
 import { profile } from "@/lib/data";
 
+function toDriveDownloadUrl(url) {
+  if (!url) return url;
+  const match = url.match(/\/file\/d\/([^/]+)/) || url.match(/[?&]id=([^&]+)/);
+  return match ? `https://drive.google.com/uc?export=download&id=${match[1]}` : url;
+}
+
 const SOCIAL_META = {
   GitHub: { Icon: SiGithub, color: "#E6E6EC" },
   LinkedIn: { Icon: FaLinkedin, color: "#0A66C2" },
@@ -95,7 +101,10 @@ export default function Contact() {
               <TbArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
-              href={profile.resumeUrl}
+              href={toDriveDownloadUrl(profile.resumeUrl)}
+              target="_blank"
+              rel="noreferrer"
+              download
               className="group inline-flex items-center gap-3 border border-line-strong px-5 py-3 text-fg hover:bg-fg hover:text-bg transition-colors"
             >
               <span className="font-mono text-xs uppercase tracking-[0.2em]">

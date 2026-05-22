@@ -40,7 +40,7 @@ function ProjectCard({ project, i }) {
           src={project.image}
           alt={project.title}
           loading="lazy"
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+          className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
         />
       </div>
 
