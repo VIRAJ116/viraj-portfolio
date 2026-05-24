@@ -14,7 +14,7 @@ function Row({ item, i }) {
       transition={{ duration: 0.6, delay: i * 0.05 }}
       className="group grid grid-cols-12 gap-4 md:gap-8 py-8 md:py-10 border-b border-line hover:bg-bg-alt transition-colors"
     >
-      <div className="col-span-12 md:col-span-2 font-mono text-xs uppercase tracking-[0.2em] text-fg-dim">
+      <div className="col-span-12 md:col-span-2 md:ml-2 font-mono text-xs uppercase tracking-[0.2em] text-fg-dim">
         {item.period}
       </div>
       <div className="col-span-12 md:col-span-6">
@@ -55,7 +55,7 @@ export default function Experience() {
   const headOpacity = useTransform(
     scrollYProgress,
     [0, 0.02, 0.98, 1],
-    [0, 1, 1, 0]
+    [0, 1, 1, 0],
   );
 
   return (
