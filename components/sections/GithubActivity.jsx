@@ -116,7 +116,7 @@ export default function GithubActivity() {
         <SectionHeader
           index="05"
           eyebrow="Pulse"
-          title="GitHub activity — commits, in green."
+          title="GitHub activity."
           kicker="A rolling year of contributions. Some days are sprints, others are sketches — both count."
         />
 
