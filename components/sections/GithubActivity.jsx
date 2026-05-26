@@ -21,7 +21,7 @@ function StatCard({ icon: Icon, label, value, accent, delay }) {
       transition={{ duration: 0.5, delay }}
       className="border border-line p-5 md:p-6 bg-bg hover:bg-bg-alt transition-colors"
     >
-      <div className="flex items-center gap-3">
+      <div className="flex flex-wrap sm:flex-nowrap items-center gap-3">
         <span
           className={`inline-flex h-9 w-9 items-center justify-center border border-line-strong ${accent}`}
         >
@@ -62,10 +62,12 @@ export default function GithubActivity() {
 
     const best = data.reduce(
       (a, d) => (d.count > a.count ? d : a),
-      data[0] || { count: 0 }
+      data[0] || { count: 0 },
     );
     const activeDays = data.filter((d) => d.count > 0);
-    const avg = activeDays.length ? (total / activeDays.length).toFixed(1) : "0.0";
+    const avg = activeDays.length
+      ? (total / activeDays.length).toFixed(1)
+      : "0.0";
 
     queueMicrotask(() =>
       setStats({
@@ -73,8 +75,10 @@ export default function GithubActivity() {
         streak,
         best: best.count,
         avg,
-        year: best.date ? new Date(best.date).getFullYear() : new Date().getFullYear(),
-      })
+        year: best.date
+          ? new Date(best.date).getFullYear()
+          : new Date().getFullYear(),
+      }),
     );
 
     return data;
@@ -91,7 +95,9 @@ export default function GithubActivity() {
       {
         icon: TbFlame,
         label: "Current streak",
-        value: stats ? `${stats.streak} ${stats.streak === 1 ? "day" : "days"}` : "—",
+        value: stats
+          ? `${stats.streak} ${stats.streak === 1 ? "day" : "days"}`
+          : "—",
         accent: "text-accent-2",
       },
       {
@@ -107,7 +113,7 @@ export default function GithubActivity() {
         accent: "text-accent",
       },
     ],
-    [stats]
+    [stats],
   );
 
   return (
@@ -166,7 +172,9 @@ export default function GithubActivity() {
             >
               ↳ github.com/{profile.githubUsername}
             </a>
-            <span className="hidden md:inline">Synced live · {new Date().getFullYear()}</span>
+            <span className="hidden md:inline">
+              Synced live · {new Date().getFullYear()}
+            </span>
           </div>
         </div>
       </div>
