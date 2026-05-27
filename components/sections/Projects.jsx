@@ -115,7 +115,7 @@ export default function Projects() {
         <SectionHeader
           index="03"
           eyebrow="Selected Work"
-          title="Case studies where craft met code."
+          title="Projects where craft met code."
           kicker="A small set of recent builds across commerce, AI, and analytics."
         />
 
