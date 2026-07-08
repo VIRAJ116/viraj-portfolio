@@ -79,7 +79,7 @@ export const metadata = {
       "Software Engineer crafting performant, cinematic web experiences with React, Next.js, and Node.js. 3+ years shipping production apps.",
     images: [
       {
-        url: "/personal/viraj_og.png",
+        url: "/personal/viraj_og.jpg",
         width: 1200,
         height: 630,
         alt: "Viraj Raiyani — MERN Stack & Next.js Developer",
@@ -91,7 +91,7 @@ export const metadata = {
     title: "Viraj Raiyani — MERN Stack & Next.js Developer",
     description:
       "Software Engineer · React, Next.js, Node.js · 3+ years shipping production apps.",
-    images: ["/personal/viraj_og.png"],
+    images: ["/personal/viraj_og.jpg"],
     creator: "@VIRAJ116",
   },
   verification: {
@@ -106,7 +106,7 @@ const personJsonLd = {
   name: "Viraj Raiyani",
   alternateName: ["Viraj", "VIRAJ116"],
   url: SITE_URL,
-  image: `${SITE_URL}/personal/viraj_og.png`,
+  image: `${SITE_URL}/personal/viraj_og.jpg`,
   jobTitle: "Senior Frontend Developer",
   worksFor: {
     "@type": "Organization",
