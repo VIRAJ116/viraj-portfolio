@@ -12,8 +12,8 @@ export default function About() {
         <SectionHeader
           index="01"
           eyebrow="About"
-          title="Engineer first. Aesthete on weekdays."
-          kicker="Three years of shipping production MERN stacks taught me that great products live at the intersection of taste, performance, and craft. I sweat the easings and the indexes."
+          title="Engineer first. AI-focused now."
+          kicker="Three years of shipping production MERN stacks taught me that great products live at the intersection of taste, performance, and craft — increasingly with AI built in. I sweat the easings and the indexes."
         />
 
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
@@ -29,8 +29,14 @@ export default function About() {
               I&apos;m a full-stack engineer specializing in the{" "}
               <span className="text-accent">MERN stack</span>, with a strong
               lean toward motion-driven, design-led products. I&apos;ve shipped
-              commerce sites, AI tools, real-time dashboards, and marketing
-              experiences across remote teams.
+              commerce sites, AI-powered tools, real-time dashboards, and
+              marketing experiences across remote teams.
+            </p>
+            <p>
+              Lately a lot of that work is{" "}
+              <span className="text-accent">AI-powered</span> — LLM
+              integrations, AI chatbots, and real-time streaming — bringing
+              smart features into products without losing the polish.
             </p>
             <p>
               I obsess over the seams others skip: scroll easings, perceived
@@ -45,7 +51,7 @@ export default function About() {
               </div>
               <div className="flex justify-between border-b border-line py-2">
                 <span>Working</span>
-                <span className="text-fg">Remote · IST</span>
+                <span className="text-fg">On-site · IST</span>
               </div>
               <div className="flex justify-between border-b border-line py-2">
                 <span>Email</span>
@@ -53,7 +59,7 @@ export default function About() {
               </div>
               <div className="flex justify-between border-b border-line py-2">
                 <span>Availability</span>
-                <span className="text-accent">Open to Opportunities</span>
+                <span className="text-accent">Immediate Joiner</span>
               </div>
             </div>
           </motion.div>

@@ -25,7 +25,7 @@ export default function SectionHeader({ index, eyebrow, title, kicker }) {
           <RevealText
             as="h2"
             text={title}
-            className="display-huge text-[10vw] md:text-[6vw] lg:text-[5vw] text-fg"
+            className="display-huge leading-[0.95] text-[10vw] md:text-[6vw] lg:text-[5vw] text-fg"
           />
           {kicker && (
             <motion.p
